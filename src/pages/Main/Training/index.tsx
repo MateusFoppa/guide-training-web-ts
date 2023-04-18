@@ -4,12 +4,14 @@ import { TopBar } from '../../../components/Topbar'
 
 import { Head } from '../../../components/Head'
 import { TrainingTitle } from '../../../components/TrainingTitle'
-import { getTrainings, getTrainingsId } from '../../../services/api'
+import { getTrainings } from '../../../services/api'
 
 import { useParams } from 'react-router-dom'
 import { TrainingsProps } from '../../../interface/TrainingsProps'
 import { useContext, useEffect, useState } from 'react'
 import { TrainingContext } from '../../../components/contexts/TrainingContext'
+import { TrainingBox } from '../../../components/TrainingBox'
+
 
 
 export default function Main() {
@@ -21,13 +23,6 @@ export default function Main() {
 
   const { trainings } = useContext(TrainingContext)
 
-  // const training = trainings.map((tr: { _id: any[] }) => {
-  //   tr._id.find(()=>{
-  //     if (tr._id) {
-
-  //     }
-  //   });
-  // })
 
   const training = trainings.filter((training: TrainingsProps) => training._id == params._id);
 
@@ -63,7 +58,8 @@ export default function Main() {
       <Head title='Training' />
       <TopBar></TopBar>
       <TrainingTitle>{training[0].name}</TrainingTitle>
+      <TrainingBox training={training}></TrainingBox>
 
-    </Container>
+    </Container >
   )
 }

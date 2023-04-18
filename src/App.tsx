@@ -8,10 +8,15 @@ import { Normalize } from 'styled-normalize'
 
 
 import { TrainingProvider } from './components/contexts/TrainingContext'
+import MyPatch from './services/MyPatch'
+import MyPost from './services/MyPost'
 
 
 
 export default function App() {
+
+  MyPatch()
+  // MyPost()
   // const [trainings, setTrainings] = useState<any>([])
 
   // useEffect(() => {

@@ -28,7 +28,7 @@ export function TrainingProvider({ children }: TrainingProviderProps) {
         ] = await Promise.all(requests)
 
         setTrainings(trainingResponse)
-        console.log("Aqi")
+
       } catch (error) {
         console.error(error)
       }

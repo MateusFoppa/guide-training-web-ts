@@ -2,45 +2,71 @@ import styled from "styled-components";
 
 
 export const Container = styled.div`
-  display: contents;
+  display: flex;
+  flex-direction: column;
   /* grid-template-columns: repeat(auto-fit, minmax(300px, 400px)); */
   gap: 1.75rem;
-  margin: 3rem;
+  margin: 0px;
 
 
    /* @media (max-width: 500px) {
      grid-template-columns: 1fr;
   } */
 
-  /* .training {
-    position: relative;
-    background: ${({ theme }) => theme.colors.green};
-    padding: 1.75rem 1.5rem;
-    border-radius: 4px; */
-
-  /* } */
-  .box {
-    position: relative;
-    display: contents;
-    background: ${({ theme }) => theme.colors.green};
+  .training {
+    display: flex;
+    flex-direction: column;
+    background: ${({ theme }) => theme.colors.black};
     padding: 1.75rem 1.5rem;
     border-radius: 4px;
-    margin: 1.2rem;
+    margin: 0px;
+
+   }
+  .box {
+    /* position: fixed; */
+    display: flex;
+    flex-direction: column;
+    background: ${({ theme }) => theme.colors.green};
+    padding: 0px 5rem;
+    padding-bottom: 3rem;
+    border-radius: 4px;
+    margin-top: 0px;
+    width: 50rem;
+    margin: auto;
+
+
+    .item {
+      margin-top: 0px;
+    }
+    form, ::placeholder{
+      display: flex;
+      flex-direction: column;
+      width: 50%;
+      margin: auto;
+      text-align: center;
+      gap: 1rem;
+      font-size: large;
+      margin-top: 1rem;
+
+    }
+    input{
+      border-radius: 4px;
+    }
 
 
     span {
-      position: absolute;
+      /* position: absolute;
       top: -0.5rem;
-      left: -0.5rem;
+      left: -0.5rem; */
 
-      background: ${({ theme }) => theme.colors.red};
+      //background: ${({ theme }) => theme.colors.green};
       width: 2rem;
       height: 2rem;
       border-radius: 50%;
 
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      //display: block;
+      /* align-items: center;
+      justify-content: center; */
 
       font-weight: 500;
       font-size: 1.125rem;
@@ -54,8 +80,8 @@ export const Container = styled.div`
     }
 
     img {
-      object-fit: cover;
-      width: 100%;
+      //object-fit: cover;
+      width: 20rem;
       height: 11.25rem;
       border-radius: 4px;
       margin-bottom: 0.375rem;
@@ -68,16 +94,16 @@ export const Container = styled.div`
     div {
       margin-top: 0.875rem;
 
-      display: flex;
+      //display: block;
       align-items: center;
-      justify-content: space-between;
+
 
       strong {
         font-size: 2rem;
         font-weight: 500;
       }
 
-      /* button {
+       button {
         background: ${({ theme }) => theme.colors.red};
         width: 3rem;
         height: 3rem;
@@ -94,7 +120,7 @@ export const Container = styled.div`
           height: 1.5rem;
         }
 
-      } */
+      }
     }
   }
 `

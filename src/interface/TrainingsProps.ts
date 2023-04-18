@@ -13,22 +13,24 @@ export interface TrainingsProps {
     name: {
       type: String,
       require: true
-    }
-    image: {
-      type: String,
-      require: false
-    }
-    charge: {
-      type: Number,
-      require: false
-    }
-    movements: {
-      type: Number,
-      require: false
-    }
-    description: {
-      type: String,
-      require: false
+    },
+    exercise: {
+      image: {
+        type: String,
+        require: false
+      }
+      charge: {
+        type: Number,
+        require: false
+      }
+      movements: {
+        type: Number,
+        require: false
+      }
+      description: {
+        type: String,
+        require: false
+      }
     }
   }
   ]
