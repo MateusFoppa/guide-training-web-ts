@@ -4,9 +4,9 @@ import { TrainingForm } from "../TrainingForm";
 import { Container } from "./style";
 
 
-export function TrainingBox({ training }: any) {
+export function TrainingBox({ trainings }: any) {
 
-
+  const training = trainings;
 
   //Imprime o treino
   return (

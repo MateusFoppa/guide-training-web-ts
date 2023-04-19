@@ -6,6 +6,7 @@ import Training from './Training'
 import { useEffect, useState } from 'react'
 import { getTrainings } from '../../services/api'
 import { SelectTraining } from '../../components/SelectTraining'
+import { TrainingTitle } from '../../components/TrainingTitle'
 
 
 export default function Main() {
@@ -80,7 +81,7 @@ export default function Main() {
   return (
     <Container>
       <TopBar></TopBar>
-
+      <TrainingTitle>Treino Diario</TrainingTitle>
 
 
     </Container>

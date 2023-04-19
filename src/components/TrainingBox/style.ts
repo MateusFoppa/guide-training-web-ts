@@ -23,7 +23,7 @@ export const Container = styled.div`
 
    }
   .box {
-    /* position: fixed; */
+    position: relative;
     display: flex;
     flex-direction: column;
     background: ${({ theme }) => theme.colors.green};

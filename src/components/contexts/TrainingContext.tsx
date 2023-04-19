@@ -1,6 +1,7 @@
 import { createContext, ReactNode, useEffect, useState } from 'react'
 
 import { getTrainings } from '../../services/api'
+import { exit } from 'process'
 
 
 
@@ -34,6 +35,8 @@ export function TrainingProvider({ children }: TrainingProviderProps) {
       }
     })()
   }, [])
+
+
 
   return (
     <TrainingContext.Provider value={{ trainings }}>

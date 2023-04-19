@@ -8,14 +8,15 @@ import { Normalize } from 'styled-normalize'
 
 
 import { TrainingProvider } from './components/contexts/TrainingContext'
-import MyPatch from './services/MyPatch'
-import MyPost from './services/MyPost'
+
+import { putTrainings } from './services/api'
+import axios from 'axios'
 
 
 
 export default function App() {
 
-  MyPatch()
+  //putTrainings()
   // MyPost()
   // const [trainings, setTrainings] = useState<any>([])
 
@@ -30,6 +31,8 @@ export default function App() {
   //   })
   // }), []
   // console.log(trainings)
+
+
   return (
     <BrowserRouter>
       <Theme>
@@ -41,7 +44,4 @@ export default function App() {
       </Theme>
     </BrowserRouter>
   )
-}
-function list() {
-  throw new Error('Function not implemented.')
 }

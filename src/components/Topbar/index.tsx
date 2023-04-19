@@ -14,20 +14,20 @@ export function TopBar() {
   return <Container>
     <h1>GuideTraining</h1>
     <SelectTraining />
-    {/* <nav>
-      <ul>
-        <li>
-          <NavLink to='/'>
-            <span>Meus Treinos</span>
-          </NavLink>
-        </li>
-        <li>
-          <NavLink to='/new-training'>
-            <span>Novo Treino</span>
-          </NavLink>
-        </li>
-      </ul>
-    </nav> */}
+    <>
+      <nav>
+        <ul>
+          <li>
+            <button className="btn btn-secondary">
+              <NavLink to='/statistics'>
+                <span>Estatísticas</span>
+              </NavLink>
+            </button>
+          </li>
+
+        </ul>
+      </nav>
+    </>
   </Container >
 
 }

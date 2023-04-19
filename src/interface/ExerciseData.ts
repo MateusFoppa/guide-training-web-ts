@@ -4,4 +4,7 @@ export interface ExerciseData {
   name: string,
   image: string,
   description: string
+  charge: number,
+  series: number,
+  movements: number
 }
