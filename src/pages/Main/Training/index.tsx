@@ -28,30 +28,6 @@ export default function Main() {
   console.log(training[0].name);
 
 
-
-  // useEffect(() => {
-
-
-  //   ; (async () => {
-  //     try {
-  //       const TrainingRequest = await getTrainingsId(param._id)
-
-
-  //       const requests = [TrainingRequest]
-
-  //       const [
-  //         { data: trainingResponse },
-  //       ] = await Promise.all(requests)
-
-  //       setTraining(trainingResponse)
-  //       console.log("Aqi")
-  //     } catch (error) {
-  //       console.error(error)
-  //     }
-  //   })()
-  // }, [])
-  // console.log(training);
-
   return (
     <Container>
       <Head title='Training' />

@@ -1,10 +1,5 @@
-import { createContext, ReactNode, useEffect, useState } from 'react'
-
+import { ReactNode, createContext, useEffect, useState } from 'react'
 import { getTrainings } from '../../services/api'
-import { exit } from 'process'
-
-
-
 
 interface TrainingProviderProps {
   children: ReactNode
