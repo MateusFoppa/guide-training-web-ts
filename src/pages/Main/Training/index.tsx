@@ -34,7 +34,7 @@ export default function Main() {
       <TopBar></TopBar>
       <TrainingTitle>{training[0].name}</TrainingTitle>
       {/* <SelectExercise /> */}
-      <TrainingBox trainings={training}></TrainingBox>
+      <TrainingBox></TrainingBox>
 
     </Container >
   )

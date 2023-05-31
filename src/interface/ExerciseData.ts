@@ -1,5 +1,7 @@
+import { Key } from "react"
 
 export interface ExerciseData {
+  _id: Key | null | undefined
   id: number,
   name: string,
   image: string,

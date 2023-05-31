@@ -23,6 +23,7 @@ h1{
 
 
 
+
     ul {
       height: 100%;
       display: inline-flex;
@@ -30,7 +31,7 @@ h1{
       align-items: center;
       gap: 4rem;
       padding: 5px;
-      margin: 0px;
+      margin-left: 10rem;
     }li{
       align-items: center;
       padding: 0px;

@@ -24,6 +24,20 @@ export function TopBar() {
               </NavLink>
             </button>
           </li>
+          <li>
+            <button className="btn btn-secondary">
+              <NavLink to='/auth/login'>
+                <span>Login</span>
+              </NavLink>
+            </button>
+          </li>
+          <li>
+            <button className="btn btn-secondary">
+              <NavLink to='/auth/register'>
+                <span>Register</span>
+              </NavLink>
+            </button>
+          </li>
 
         </ul>
       </nav>

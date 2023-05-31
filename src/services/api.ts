@@ -4,6 +4,7 @@ import { TrainingsProps } from '../interface/TrainingsProps'
 
 import { useContext } from 'react'
 import { TrainingContext } from '../components/contexts/TrainingContext'
+import { TrainingData } from '../interface/TrainingData'
 
 export const api = axios.create({
   baseURL: process.env.REACT_APP_API_BASE_URL,
@@ -12,6 +13,14 @@ export const api = axios.create({
 
 export const getTrainings = () => {
   return api.get<TrainingsProps>("/training")
+}
+
+export const getTrainingsId = (_id: any) => {
+  return api.get<TrainingsProps>(`/training/${_id}`)
+}
+
+export const getExerciseId = (_id: any) => {
+  return api.get<TrainingsProps>(`/exercise/${_id}`)
 }
 
 export const putTrainings = () => {
@@ -31,16 +40,17 @@ export const putTrainings = () => {
     })
 }
 
-export const postTrainings = () => {
-  const { trainings } = useContext(TrainingContext)
+export const postTrainings = (training: TrainingData[]) => {
+  // const { trainings } = useContext(TrainingContext)
   axios.post('http://localhost:5000/training', {
-    trainings
+    training
   })
     .then(function (response) {
       console.log(response);
+      console.log(training,"postCerto");
     })
     .catch(function (error) {
-      console.error(error);
+      console.error(error,'aqui');
     });
 }
 export default api

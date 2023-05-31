@@ -1,4 +1,3 @@
-
 import { Container } from './styles'
 import { TopBar } from '../../../components/Topbar'
 
@@ -11,29 +10,23 @@ import { useContext, useEffect, useState } from 'react'
 import { TrainingContext } from '../../../components/contexts/TrainingContext'
 import { TrainingBox } from '../../../components/TrainingBox'
 import { SelectExercise } from '../../../components/SelectExercise'
+import { TrainingForm } from '../../../components/TrainingForm'
 
+export default function Exercise() {
+  // const params: any = useParams()
+  // console.log(params._id)
 
+  // const { trainings } = useContext(TrainingContext)
 
-export default function Main() {
+  // const training = trainings.filter((training: TrainingsProps) => training._id == params._id)
 
-  const params: any = useParams();
-  console.log(params._id);
-
-  const { trainings } = useContext(TrainingContext)
-
-
-  const training = trainings.filter((training: TrainingsProps) => training._id == params._id);
-
-  console.log(training[0].name);
+  // console.log(training[0].name)
 
   return (
     <Container>
       <Head title='Training' />
       <TopBar></TopBar>
-      <TrainingTitle>{training[0].name}</TrainingTitle>
-      <SelectExercise />
-      {/* <TrainingBox trainings={training}></TrainingBox> */}
-
-    </Container >
+        <TrainingForm></TrainingForm>
+    </Container>
   )
 }

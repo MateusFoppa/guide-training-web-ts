@@ -1,58 +1,73 @@
-import React, { useContext, useEffect } from 'react';
-import { useForm } from 'react-hook-form';
-
-
+import React, { useContext, useEffect, useState } from 'react'
+import { useParams } from 'react-router-dom';
 import { TrainingContext } from '../contexts/TrainingContext';
-import axios from 'axios';
+import Exercise from '../../pages/Main/Exercise';
+import { getExerciseId } from '../../services/api';
+import { TrainingsProps } from '../../interface/TrainingsProps';
 
-import { postTrainings, putTrainings } from '../../services/api';
-
-
-
-export function TrainingForm(training: any, id: any) {
+export function TrainingForm() {
 
   const { trainings } = useContext(TrainingContext)
 
-  const { register, handleSubmit, formState: { errors } } = useForm();
+  const { _id } = useParams();
 
-  const onSubmit = (data: any) => {
-    TrainingPut(data);
-  }
+  //States do Form
+  const [moviments, setMoviments] = useState('')
+  const [serie, setSerie] = useState('')
+  const [charge, setCharge] = useState('')
 
-  console.log(errors);
-  console.log(training.training[0])
-  const exe = (training.training[0]);
 
-  function TrainingPut(data: any) {
+  const handleSubmit = (e: { preventDefault: () => void }) => {
+    e.preventDefault()
 
-    const { movements, charge, series } = data;
+    // Aqui você pode fazer algo com os valores do movimento, série e charge
+    console.log('Moviments:', moviments)
+    console.log('Série:', serie)
+    console.log('Charge:', charge)
 
-    console.log(movements, charge, series)
-
-    exe.exercise[0].movements = movements;
-    exe.exercise[0].charge = charge;
-    exe.exercise[0].series = series;
-
-    console.log(exe)
-
-    const { setTrainings } = useContext(TrainingContext);
-    setTrainings({ trainings: exe });
+    console.log(_id)
 
     console.log(trainings)
-    //postTrainings;
-    putTrainings;
+
+    const filteredExercises = trainings[0].exercise.filter((item: any) => item._id === _id);
+
+    if (filteredExercises.length > 0) {
+      
+      filteredExercises[0].charge = charge;
+      filteredExercises[0].movements = moviments;
+      filteredExercises[0].series = serie;
+
+      console.log(filteredExercises[0]);
+
+    // Limpar os campos do formulário
+    setMoviments('')
+    setSerie('')
+    setCharge('')
 
 
   }
+}
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)}>
-      <input type="number" placeholder="Carga" {...register("charge", { required: true, max: 200, min: 1, maxLength: 80 })} />
-      <input type="number" placeholder="Repetições" {...register("movements", { max: 50, min: 2, maxLength: 100 })} />
-      <input type="number" placeholder="Series" {...register("series", { max: 19, min: 1 })} />
+    <div className='form'>
+      <form onSubmit={handleSubmit}>
+        <label>
+          Movimentos:
+          <input type='number' value={moviments} onChange={(e) => setMoviments(e.target.value)} />
+        </label>
 
+        <label>
+          Séries:
+          <input type='number' value={serie} onChange={(e) => setSerie(e.target.value)} />
+        </label>
 
-      <input type="submit" />
-    </form>
-  );
+        <label>
+          Carga:
+          <input type='number' value={charge} onChange={(e) => setCharge(e.target.value)} />
+        </label>
+
+        <button type='submit'>Enviar</button>
+      </form>
+    </div>
+  )
 }
