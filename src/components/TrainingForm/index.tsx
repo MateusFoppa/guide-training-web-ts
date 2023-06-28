@@ -1,21 +1,17 @@
-import React, { useContext, useEffect, useState } from 'react'
-import { useParams } from 'react-router-dom';
-import { TrainingContext } from '../contexts/TrainingContext';
-import Exercise from '../../pages/Main/Exercise';
-import { getExerciseId } from '../../services/api';
-import { TrainingsProps } from '../../interface/TrainingsProps';
+import React, { useContext, useState } from 'react'
+import { useParams } from 'react-router-dom'
+import { TrainingContext } from '../contexts/TrainingContext'
+import { Container } from './style'
 
 export function TrainingForm() {
-
   const { trainings } = useContext(TrainingContext)
 
-  const { _id } = useParams();
+  const { _id } = useParams()
 
   //States do Form
   const [moviments, setMoviments] = useState('')
   const [serie, setSerie] = useState('')
   const [charge, setCharge] = useState('')
-
 
   const handleSubmit = (e: { preventDefault: () => void }) => {
     e.preventDefault()
@@ -29,45 +25,50 @@ export function TrainingForm() {
 
     console.log(trainings)
 
-    const filteredExercises = trainings[0].exercise.filter((item: any) => item._id === _id);
+    const filteredExercises = trainings[0].exercise.filter((item: any) => item._id === _id)
 
     if (filteredExercises.length > 0) {
-      
-      filteredExercises[0].charge = charge;
-      filteredExercises[0].movements = moviments;
-      filteredExercises[0].series = serie;
+      filteredExercises[0].charge = charge
+      filteredExercises[0].movements = moviments
+      filteredExercises[0].series = serie
 
-      console.log(filteredExercises[0]);
+      console.log(filteredExercises[0])
 
-    // Limpar os campos do formulário
-    setMoviments('')
-    setSerie('')
-    setCharge('')
-
-
+      // Limpar os campos do formulário
+      setMoviments('')
+      setSerie('')
+      setCharge('')
+    }
   }
-}
 
   return (
-    <div className='form'>
-      <form onSubmit={handleSubmit}>
-        <label>
-          Movimentos:
-          <input type='number' value={moviments} onChange={(e) => setMoviments(e.target.value)} />
-        </label>
+    <Container>
+      <div className='box'>
+        <div className='form'>
+          <form onSubmit={handleSubmit}>
+            <label>
+              Movimentos:
+              <input
+                type='number'
+                value={moviments}
+                onChange={(e) => setMoviments(e.target.value)}
+              />
+            </label>
 
-        <label>
-          Séries:
-          <input type='number' value={serie} onChange={(e) => setSerie(e.target.value)} />
-        </label>
+            <label>
+              Séries:
+              <input type='number' value={serie} onChange={(e) => setSerie(e.target.value)} />
+            </label>
 
-        <label>
-          Carga:
-          <input type='number' value={charge} onChange={(e) => setCharge(e.target.value)} />
-        </label>
+            <label>
+              Carga:
+              <input type='number' value={charge} onChange={(e) => setCharge(e.target.value)} />
+            </label>
 
-        <button type='submit'>Enviar</button>
-      </form>
-    </div>
+            <button type='submit'>Enviar</button>
+          </form>
+        </div>
+      </div>
+    </Container>
   )
 }
